@@ -10,4 +10,6 @@ project(
 	VERSION 0.0.1
 	DESCRIPTION "Source Kode Analyzer")
 
+include(CTest)
+
 add_subdirectory(src)

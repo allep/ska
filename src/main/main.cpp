@@ -1,6 +1,7 @@
 #include <iostream>
+#include "hello.h"
 
 int main(int agrc, char** argv) {
-	std::cout << "Hello world" << std::endl;
+	std::cout << generateHelloString("Jack") << std::endl;
 	return 0;
 }

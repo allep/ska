@@ -1,7 +1,8 @@
+#include "application.h"
 #include <iostream>
-#include "hello.h"
 
-int main(int agrc, char** argv) {
-	std::cout << generateHelloString("Jack") << std::endl;
-	return 0;
+int main(int agrc, char **argv) {
+  std::cout << "Main component linked with:" << std::endl;
+  std::cout << GetApplicationString() << std::endl;
+  return 0;
 }

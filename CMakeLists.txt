@@ -10,6 +10,14 @@ project(
 	VERSION 0.0.1
 	DESCRIPTION "Source Kode Analyzer")
 
+# On Windows we need to set the following environment variables to make
+# this working:
+# - GTEST_INCLUDE_DIR
+# - GTEST_LIBRARY
+# - GTEST_MAIN_LIBRARY
+# - GTEST_ROOT
+find_package(GTest REQUIRED)
+
 include(CTest)
 
 add_subdirectory(src)

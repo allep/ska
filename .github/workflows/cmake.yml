@@ -34,7 +34,7 @@ jobs:
 
       - name: Unit-test
         working-directory: ${{github.workspace}}/build
-        run: src/main/${{env.BUILD_TYPE}}/main_test.test
+        run: ls -l src/main/${{env.BUILD_TYPE}}/
 
       - name: Test (CTest)
         working-directory: ${{github.workspace}}/build

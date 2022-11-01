@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.11-3.18)
 project(ska)
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
+
 add_executable(ska src/main.cpp)
 
 target_include_directories(${PROJECT_NAME}

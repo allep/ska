@@ -12,7 +12,7 @@ target_compile_features(core PUBLIC cxx_std_20)
 enable_testing()
 
 add_executable(fs_test test/FileSystemTraversalServiceTest.cpp)
-target_link_libraries(fs_test PRIVATE core GTest::gtest_main)
+target_link_libraries(fs_test PRIVATE core GTest::gtest_main GTest::gmock)
 
 include(GoogleTest)
 gtest_discover_tests(fs_test)

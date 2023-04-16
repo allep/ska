@@ -1,19 +1,28 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
+#include <iostream>
 
 #include "FileSystemTraversalServiceMock.h"
 
-TEST(FileSystemTraversalService, BasicTraversal) {
-  // clang-format off
-  EXPECT_EQ(42, 43);
-  // clang-format on
+using ::testing::DoAll;
 
-  // Test to do:
-  // create the service mock
-  // set actions for its call as if we were traversing a fs for real
+/**
+ * @brief simple naive test to experiment with gmock and a simple interface.
+ *        Checks if the callback is called as expected.
+ */
+TEST(FileSystemTraversalService, BasicMockTest) {
+  FileSystemTraversalServiceMock service;
 
-  // TODO FIXME: this probably doesn't work, because I need to specify more than
-  // a single call for a single function call. Is it possible? Is there a better
-  // way to do so? Probably (red hat) I'm doing a bad design of the service
-  // interface :(
+  int counter = 0;
+  auto action = [&counter]() {
+    // clang-format off
+    counter++; 
+    // clang-format on 
+    };
+
+  EXPECT_CALL(service, RecursivelyVisitDirectory)
+      .WillOnce(DoAll(testing::InvokeWithoutArgs([&action]() { action(); })));
+
+  service.RecursivelyVisitDirectory("test", action);
+  EXPECT_EQ(counter, 1);
 }
